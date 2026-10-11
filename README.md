@@ -23,6 +23,16 @@ The server is declared through native `.mcp.json` and runs readable bundled Pyth
 
 The manifest passed strict Claude Code validation, and the locked UV runtime passed isolated local MCP checks. Anthropic portal validation, official review and clean native GUI installation remain pending. See [validation](VALIDATION.md). See [dated validation scopes](https://github.com/ZipengWu365/TOMC/blob/main/docs/validation.md) for the earlier packaged runtime checks, which are not evidence that this new wrapper was accepted by Anthropic.
 
+## Cursor and TRAE through local MCP
+
+Cursor and TRAE offer local MCP configuration. To connect this runtime, clone this repository into a directory you will keep and install [UV](https://docs.astral.sh/uv/getting-started/installation/). Make `uv` available on the PATH used by your client. Run `uv sync --locked --directory "/absolute/path/to/TOMC-plugin"` with your actual checkout path before connecting.
+
+Copy the template for [Cursor](integrations/mcp.cursor.json) or [TRAE](integrations/mcp.template.json), then replace both absolute paths with your checkout paths. The Cursor template explicitly declares `type` as `stdio`. In Cursor, merge its `tomc` entry into your project `.cursor/mcp.json` or user `~/.cursor/mcp.json`. In TRAE International or CN, add it through **Settings → MCP → Add → Create Manually**, selecting the local environment; alternatively, enable project MCP and merge it into `.trae/mcp.json`. Preserve existing server entries. TRAE requires `command` to contain no spaces; keep directory paths in separate `args` strings. This local server applies to tasks running on your computer.
+
+This is manual MCP configuration. The Claude plugin manifest is not a Cursor or TRAE installer, and TOMC is not listed in their official directories. **Cursor and TRAE client tool discovery and model calls remain unverified.** See the [English guide](https://github.com/ZipengWu365/TOMC/blob/main/docs/cursor_trae.md) or [中文指南](https://github.com/ZipengWu365/TOMC/blob/main/docs/cursor_trae_zh.md) for usage and troubleshooting. Those guides use the main TOMC repository's `plugins/claude-code` runtime path; use this repository's root path for the template linked here.
+
+Report connection failures in [Issues](https://github.com/ZipengWu365/TOMC-plugin/issues), including client version, operating system and the relevant error. Remove credentials and private note text from reports.
+
 ## Use
 
 For long supplied history, ask: "Prepare this history for the next task with TOMC, then answer using the returned memory." The `prepare_context` tool takes `history`, the actual next `task`, and an optional `budget`. Without a budget it keeps about 80% of the lexical history estimate, with a minimum budget of 1,024 estimated tokens. Histories that fit remain intact. Preserve the original history to recover omitted details.

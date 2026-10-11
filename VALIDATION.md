@@ -16,6 +16,8 @@ All of these checks used synthetic input. No paid model calls, personal notebook
 
 ## Limits
 
+Cursor and TRAE manual MCP configuration was added on 2026-10-11. Their client tool discovery and model calls have not been checked. The new template uses this repository's existing locked runtime; it does not add a native Cursor or TRAE plugin or a public directory listing.
+
 These are package and tool-runtime checks. They do not establish model-selected tool behavior, quality or savings on every task, clean native GUI installation, Anthropic portal acceptance, official review, or public directory listing. The plugin is a candidate for that review. Earlier host/model checks are documented separately in the [main TOMC project](https://github.com/ZipengWu365/TOMC/blob/main/docs/validation.md).
 
 ## Local verification
