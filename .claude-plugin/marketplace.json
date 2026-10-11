@@ -1,0 +1,14 @@
+{
+  "name": "tomc",
+  "description": "Local CPU context preparation and optional named notebooks with TOMC.",
+  "owner": {
+    "name": "Zipeng Wu"
+  },
+  "plugins": [
+    {
+      "name": "tomc-memory",
+      "source": "./",
+      "description": "Prepare task-specific context from supplied history on CPU; optionally keep local named notebooks."
+    }
+  ]
+}

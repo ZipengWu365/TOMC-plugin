@@ -1,0 +1,21 @@
+{
+  "name": "tomc-memory",
+  "displayName": "TOMC",
+  "version": "0.1.1",
+  "description": "Prepare task-specific context from supplied history on CPU; optionally keep local named notebooks.",
+  "author": {
+    "name": "Zipeng Wu"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ZipengWu365/TOMC",
+  "repository": "https://github.com/ZipengWu365/TOMC-plugin",
+  "documentationUrl": "https://github.com/ZipengWu365/TOMC-plugin/blob/main/README.md",
+  "supportUrl": "https://github.com/ZipengWu365/TOMC-plugin/issues",
+  "privacyPolicyUrl": "https://github.com/ZipengWu365/TOMC-plugin/blob/main/PRIVACY.md",
+  "keywords": [
+    "context",
+    "cpu",
+    "tomc",
+    "memory"
+  ]
+}
