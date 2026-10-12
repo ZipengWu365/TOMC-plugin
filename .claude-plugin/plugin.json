@@ -1,8 +1,8 @@
 {
   "name": "tomc-memory",
   "displayName": "TOMC",
-  "version": "0.1.1",
-  "description": "Prepare task-specific context from supplied history on CPU; optionally keep local named notebooks.",
+  "version": "0.1.2",
+  "description": "Prepare external task evidence and optional local notebooks; the host manages active-chat compaction.",
   "author": {
     "name": "Zipeng Wu"
   },

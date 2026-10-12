@@ -1,7 +1,13 @@
-# Native plugin validation — 2026-10-11
+# Native plugin validation
+
+## Host-managed conversation policy — 2026-10-12
+
+Packaging 0.1.2 updates the skill and MCP assistant instructions to leave active-chat compaction with the host when enabled or unknown. Compilation rules, storage behavior and five tool signatures are unchanged; the built-in lexical row packer now uses an output-equivalent additive fast path. The runtime also includes opt-in API request helpers. Those helpers do not install client request interceptors. This is a workflow policy, not a switch detector, runtime prohibition or automatic request hook. Earlier runtime/model evidence remains scoped to its original version; this change adds no native-client or model acceptance result.
+
+## Historical wrapper checks — 2026-10-11
 
 Plugin packaging version 0.1.1 contains the unchanged TOMC runtime 0.1.0.
-The 35 imported runtime, license and lock files match the published MCPB byte for byte.
+For that historical 0.1.1 wrapper, the 35 imported runtime, license and lock files matched its original published MCPB byte for byte. This historical byte-match statement does not describe the later 0.1.2 runtime update.
 The plugin has no bundled private notebooks, credentials, model keys or executables.
 
 ## Checks completed

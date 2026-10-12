@@ -2,7 +2,7 @@
 
 TOMC prepares task-specific context from history supplied by you or your assistant. It selects source text and computes supported state, relation and count records on CPU. Your existing assistant generates the answer; TOMC requires no extra model API key, GPU, training or neural inference service.
 
-This is the native plugin 0.1.1 publication candidate, containing the unchanged TOMC 0.1.0 runtime from the current public MCPB. It is not yet listed in Anthropic's directory. The existing MCPB remains a separate manual Claude Desktop extension.
+This is native plugin 0.1.2, with the TOMC 0.1.0 compiler core and updated host-managed conversation instructions. The earlier 0.1.1 validation retains its original scope. It is not yet listed in Anthropic's directory. The existing MCPB remains a separate manual Claude Desktop extension.
 
 ## Requirements and installation
 
@@ -40,6 +40,10 @@ Clone this repository and install UV as described above. Run `uv sync --locked -
 In WorkBuddy, open **Plugins → MCP Servers → Configure MCP**. Merge the `tomc` entry into user `~/.workbuddy/mcp.json` or project `.workbuddy/mcp.json`, preserving existing server entries. The template declares local `stdio` and uses the same locked runtime. The default notebook database remains `~/.tomc/memory.sqlite3`; set `TOMC_MEMORY_PATH` in the server's `env` object to select a different file. See the [English guide](https://github.com/ZipengWu365/TOMC/blob/main/docs/workbuddy.md) or [中文指南](https://github.com/ZipengWu365/TOMC/blob/main/docs/workbuddy_zh.md). Those guides use the main repository's `plugins/claude-code` directory; the template here uses this repository's root.
 
 WorkBuddy client tool discovery and model calls remain unverified. This is manual local MCP setup, and TOMC is not listed in Tencent's marketplace. The five tools keep the same explicit preparation, save, recall, list and exact-deletion behavior. [Official WorkBuddy MCP configuration](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/MCP-Guide).
+
+## Conversation context ownership
+
+The host owns the active chat when it has native compaction or its state is unknown. Do not proactively call TOMC to recompact that conversation, before or after a host compaction event. Use TOMC for separately supplied external history or explicitly saved notebooks. This is an assistant workflow policy; the MCP server cannot inspect the host's internal switch, intercept each API call or prevent direct manual compiler use. See [context ownership](https://github.com/ZipengWu365/TOMC/blob/main/docs/context_ownership.md) / [中文说明](https://github.com/ZipengWu365/TOMC/blob/main/docs/context_ownership_zh.md).
 
 ## Use
 
