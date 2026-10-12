@@ -16,6 +16,8 @@ All of these checks used synthetic input. No paid model calls, personal notebook
 
 ## Limits
 
+WorkBuddy manual local MCP configuration was added on 2026-10-12, using an explicit STDIO template and the unchanged locked runtime. WorkBuddy client tool discovery, model calls and cross-session use have not been checked. This does not add a Tencent marketplace listing or establish Enterprise-client support.
+
 Cursor and TRAE manual MCP configuration was added on 2026-10-11. Their client tool discovery and model calls have not been checked. The new template uses this repository's existing locked runtime; it does not add a native Cursor or TRAE plugin or a public directory listing.
 
 These are package and tool-runtime checks. They do not establish model-selected tool behavior, quality or savings on every task, clean native GUI installation, Anthropic portal acceptance, official review, or public directory listing. The plugin is a candidate for that review. Earlier host/model checks are documented separately in the [main TOMC project](https://github.com/ZipengWu365/TOMC/blob/main/docs/validation.md).

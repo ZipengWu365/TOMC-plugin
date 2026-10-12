@@ -33,6 +33,14 @@ This is manual MCP configuration. The Claude plugin manifest is not a Cursor or 
 
 Report connection failures in [Issues](https://github.com/ZipengWu365/TOMC-plugin/issues), including client version, operating system and the relevant error. Remove credentials and private note text from reports.
 
+## Tencent WorkBuddy through local MCP
+
+Clone this repository and install UV as described above. Run `uv sync --locked --directory "/absolute/path/to/TOMC-plugin"` with your actual checkout path. Copy the [WorkBuddy JSON template](integrations/mcp.workbuddy.json), replacing both absolute paths with this checkout's root and `src/server.py` paths.
+
+In WorkBuddy, open **Plugins → MCP Servers → Configure MCP**. Merge the `tomc` entry into user `~/.workbuddy/mcp.json` or project `.workbuddy/mcp.json`, preserving existing server entries. The template declares local `stdio` and uses the same locked runtime. The default notebook database remains `~/.tomc/memory.sqlite3`; set `TOMC_MEMORY_PATH` in the server's `env` object to select a different file. See the [English guide](https://github.com/ZipengWu365/TOMC/blob/main/docs/workbuddy.md) or [中文指南](https://github.com/ZipengWu365/TOMC/blob/main/docs/workbuddy_zh.md). Those guides use the main repository's `plugins/claude-code` directory; the template here uses this repository's root.
+
+WorkBuddy client tool discovery and model calls remain unverified. This is manual local MCP setup, and TOMC is not listed in Tencent's marketplace. The five tools keep the same explicit preparation, save, recall, list and exact-deletion behavior. [Official WorkBuddy MCP configuration](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/MCP-Guide).
+
 ## Use
 
 For long supplied history, ask: "Prepare this history for the next task with TOMC, then answer using the returned memory." The `prepare_context` tool takes `history`, the actual next `task`, and an optional `budget`. Without a budget it keeps about 80% of the lexical history estimate, with a minimum budget of 1,024 estimated tokens. Histories that fit remain intact. Preserve the original history to recover omitted details.
